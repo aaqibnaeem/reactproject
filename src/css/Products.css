@@ -1,0 +1,9 @@
+.card-title{
+    font-size: 14px;
+}
+
+.card:hover{
+    transform: translateY(-3px);
+    transition: all 0.2s linear;
+    box-shadow: 0 0 3px gray;
+}
