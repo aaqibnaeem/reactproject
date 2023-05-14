@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import MyNav from "./MyNav";
-import Footer from "./Footer";
 import { Container } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
@@ -21,57 +19,61 @@ let Contact = () => {
       .string("Enter your email")
       .email("Invalid email")
       .required("Email is required"),
-    msg: yup.string("Enter message").required("messageis required"),
+    msg: yup.string("Enter message").required("Message is required"),
   });
 
   let formReset = () => {
     let inpForm = document.getElementsByTagName("form")[0];
-    inpForm.childNodes[0].childNodes[0].value = ''
-    inpForm.childNodes[1].childNodes[0].value = ''
-    inpForm.childNodes[2].childNodes[0].value = ''
-    inpForm.childNodes[3].childNodes[0].value = ''
+    inpForm.childNodes[0].childNodes[0].value = "";
+    inpForm.childNodes[1].childNodes[0].value = "";
+    inpForm.childNodes[2].childNodes[0].value = "";
+    inpForm.childNodes[3].childNodes[0].value = "";
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setMsg("");
   };
 
-  const myFormik = useFormik({
-    initialValues: {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      msg: msg,
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      const notify = toast.success("Message sent...", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      setFirstName(values.firstName)
-      setLastName(values.lastName)
-      setEmail(values.email)
-      setMsg(values.msg)
+  const myFormik = useFormik(
+    {
+      initialValues: {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        msg: msg,
+      },
+      validationSchema: validationSchema,
+      onSubmit: (values) => {
+        toast.success("Message sent...", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setFirstName(values.firstName);
+        setLastName(values.lastName);
+        setEmail(values.email);
+        setMsg(values.msg);
 
-      let msgData = {
-        firstName : firstName,
-        lastName : lastName,
-        email : email,
-        msg : msg,
-      }
-      console.log(msgData)
-
-      // formReset()
+        let msgData = {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          msg: msg,
+        };
+        console.log(msgData);
+        formReset();
+      },
     },
-  },[firstName,lastName,email,msg]);
+    [firstName, lastName, email, msg]
+  );
 
   return (
     <>
-      <MyNav />
-
       <div
         className="container-fluid about-heading bg-light shadow"
         style={{ height: 300, display: "flex", alignItems: "center" }}
@@ -145,7 +147,7 @@ let Contact = () => {
           <div className="container bg-light m-2 border rounded">
             <h5 className="text-center m-2">Our Location</h5>
             <iframe
-              className=""
+              title="Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.050862043041!2d68.35913359999999!3d25.369611799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c713e8cb32343%3A0xd640028bfd277317!2sInTech%20Solusions!5e0!3m2!1sen!2s!4v1670608216858!5m2!1sen!2s"
               width="100%"
               height="450"
@@ -154,8 +156,6 @@ let Contact = () => {
           </div>
         </div>
       </Container>
-
-      <Footer />
       <ToastContainer />
     </>
   );

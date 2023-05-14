@@ -1,12 +1,11 @@
 import React from "react";
-import MyNav from "./MyNav";
 import { Link } from "react-router-dom";
-import "../css/Home.css";
+import "../css/Slider.css";
+import Slider from "./Slider";
 function Home() {
   return (
     <>
-      <MyNav />
-      <div className="container-fluid d-flex flex-column justify-content-center mt-0 px-2 py-5 my-3 text-center hero-wrapper">
+      {/* <div className="container-fluid d-flex flex-column justify-content-center mt-0 px-2 py-5 my-3 text-center hero-wrapper">
         <h1 className="display-3 fw-bold">InTech Solusions</h1>
         <div className="col-lg-6 mx-auto">
           <p className="lead mb-4 fs-6">
@@ -15,12 +14,13 @@ function Home() {
             usability, and productivity.
           </p>
         </div>
-      </div>
+      </div> */}
+      <Slider/>
 
       <h3
         data-aos="fade-right"
         data-aos-duration="1000"
-        class="text-center mb-5"
+        class="text-center my-5"
       >
         Product highlights
       </h3>
@@ -95,7 +95,6 @@ function Home() {
           <Link to="/Products">All Products</Link>
         </div>
       </div>
-      
     </>
   );
 }

@@ -1,4 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
+
 function MyNav() {
   return (
     <nav className="navbar sticky-top navbar-expand-lg bg-light shadow-sm">

@@ -1,12 +1,9 @@
 import React from "react";
-import MyNav from "./MyNav";
-import Footer from "./Footer";
 import "../css/Products.css";
 
 let Products = () => {
   return (
     <>
-      <MyNav />
       <div
         className="container-fluid about-heading bg-light shadow"
         style={{ height: 300, display: "flex", alignItems: "center" }}
@@ -249,7 +246,6 @@ let Products = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

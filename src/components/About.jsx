@@ -1,13 +1,9 @@
 import React from "react";
-import MyNav from "./MyNav";
-import { redirect } from "react-router-dom";
-import Footer from "./Footer";
 import { Container } from "react-bootstrap";
 
 let About = () => {
   return (
     <>
-      <MyNav />
       <div
         className="container-fluid about-heading bg-light shadow"
         style={{ height: 300, display: "flex", alignItems: "center" }}
@@ -72,8 +68,6 @@ let About = () => {
           </div>
         </div>
       </Container>
-
-      <Footer />
     </>
   );
 };
